@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer - Focus Timer</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pomodoro Power</h1>
+            <p>Boost your productivity with focused work sessions</p>
+        </header>
+
+        <main>
+            <div class="timer-section">
+                <div class="timer-display">
+                    <svg class="progress-ring" width="300" height="300">
+                        <circle class="progress-ring-background" cx="150" cy="150" r="130"></circle>
+                        <circle class="progress-ring-circle" cx="150" cy="150" r="130"></circle>
+                    </svg>
+                    <div class="timer-text">
+                        <div id="timerDisplay" class="time">25:00</div>
+                        <div id="sessionType" class="session-type">Focus Time</div>
+                    </div>
+                </div>
+
+                <div class="timer-controls">
+                    <button id="startPauseBtn" class="btn btn-primary">Start</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    <button id="skipBtn" class="btn btn-secondary">Skip</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Timer Settings</h3>
+                <div class="settings-grid">
+                    <div class="setting">
+                        <label for="workDuration">Work Duration (minutes)</label>
+                        <input type="number" id="workDuration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting">
+                        <label for="shortBreakDuration">Short Break (minutes)</label>
+                        <input type="number" id="shortBreakDuration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting">
+                        <label for="longBreakDuration">Long Break (minutes)</label>
+                        <input type="number" id="longBreakDuration" min="1" max="60" value="15">
+                    </div>
+                    <div class="setting">
+                        <label for="sessionsBeforeLongBreak">Sessions before long break</label>
+                        <input type="number" id="sessionsBeforeLongBreak" min="1" max="8" value="4">
+                    </div>
+                </div>
+                <button id="applySettings" class="btn btn-accent">Apply Settings</button>
+            </div>
+
+            <div class="stats-section">
+                <h3>Today's Progress</h3>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-value" id="completedSessions">0</div>
+                        <div class="stat-label">Sessions Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="totalFocusTime">0</div>
+                        <div class="stat-label">Minutes Focused</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="session-progress">
+                <h3>Session Progress</h3>
+                <div class="progress-dots" id="progressDots">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <audio id="completionSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==" type="audio/wav">
+    </audio>
+
+    <script src="index.js"></script>
+</body>
+</html>
